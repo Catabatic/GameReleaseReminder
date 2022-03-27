@@ -19,7 +19,7 @@ TWITCH_CLIENT_SECRET = os.getenv("TWITCH_CLIENT_SECRET")
 r = requests.post(f"https://id.twitch.tv/oauth2/token?client_id={TWITCH_CLIENT_ID}&client_secret={TWITCH_CLIENT_SECRET}&grant_type=client_credentials")
 access_token = json.loads(r._content)['access_token']
 
-wrapper = IGDBWrapper("dg2iwgewvuirdyb03zql41h270kcxf", access_token)
+wrapper = IGDBWrapper(TWITCH_CLIENT_ID, access_token)
 
 bot = commands.Bot(command_prefix='/')
 
